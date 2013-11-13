@@ -1,7 +1,7 @@
 (ns game-of-life.core-test
-  (:require [clojure.test :refer :all]
-            [game-of-life.core :refer :all]))
+    (:use midje.sweet)
+    (:require [game-of-life.core :refer :all]))
+ 
+(fact (game-of-life.core/next 107 [1 1 0]) => \1)
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+(fact (game-of-life.core/line 107 [1 1 0 0]) => [\1 \1 \0 \1])

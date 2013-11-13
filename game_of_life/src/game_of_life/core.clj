@@ -1,13 +1,8 @@
 (ns game-of-life.core
   (:gen-class))
 (use 'clojure.pprint)
-(use '[clojure.string :only (join split)])
+(use '[clojure.string :only (join split, trim)])
 
-
-;; Converting numbers
-
-(Integer/toString 19 2)
-(Integer/parseInt "10011" 2)
 
 ;; Main Program
 (def rule-number 107)
@@ -25,13 +20,13 @@
        (next rule-number (subvec formatted i (+ i 3))))))
 
 (defn compute [rule-number number-of-lines input]
-  (loop [n number-of-lines current input]
-        (print current)
-        (if (> n 1)
-            (recur (dec n) (line rule-number current))
-        )
-  )
-)
+   (loop [n number-of-lines 
+          current input
+          acc nil]
+         (def newinput (seq (line rule-number current)))
+         (if (zero? n)
+             acc
+             (recur (dec n) newinput (conj acc newinput)))))
 
-
-
+(defn print! [sequence]
+  (dorun (map #(apply println %) sequence)))
