@@ -24,4 +24,8 @@ Copy (really kill-ring-save): ```M-w```
   
 Paste (really yank): ```C-y```
   
+Split the selected window into two windows, one above the other (split-window-vertically): ```C-x 2```
+  
+Split the selected window into two windows positioned side by side (split-window-horizontally): ```C-x 3```
+  
 Close Emacs:  ```C-x C-c```
