@@ -12,12 +12,16 @@ Copy this snippet into ```~/.emacs.d/init.el``` somewhere into the existing file
 
 Useful Emacs commands
 ---------------------
-Start REPL:  
-```
-M-x cider-jack-in
-```
+Start REPL:  ```M-x cider-jack-in```
   
-Close Emacs:  
-```
-C-x, C-c
-```
+Put your cursor at the end of the new function and do:  ```C-x C-e```
+  
+Save the current buffer to its file (save-buffer): ```C-x C-s```
+  
+Cut (really kill): ```C-w```
+  
+Copy (really kill-ring-save): ```M-w```
+  
+Paste (really yank): ```C-y```
+  
+Close Emacs:  ```C-x C-c```
