@@ -1,13 +1,9 @@
 (ns game-of-life.core
   (:gen-class))
 (use 'clojure.pprint)
-(use '[clojure.string :only (join split, trim)])
-
 
 ;; Main Program
-(def rule-number 107)
-
-(defn next [rule-number [b1 b2 b3]]
+(defn apply-next [rule-number [b1 b2 b3]]
   (def rule (cl-format nil "~8,'0b" rule-number))
   (def pos (Integer/parseInt (str b1 b2 b3) 2))
   (get rule (- 7 pos)))
@@ -17,7 +13,7 @@
   (def formlength (count formatted))
   (vec 
    (for [i (range (- formlength 2))] 
-       (next rule-number (subvec formatted i (+ i 3))))))
+       (apply-next rule-number (subvec formatted i (+ i 3))))))
 
 (defn compute [rule-number number-of-lines input]
    (loop [n number-of-lines 
