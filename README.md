@@ -14,9 +14,9 @@ Useful Emacs commands
 ---------------------
 Start REPL:  ```M-x cider-jack-in```
   
-Sometimes the file needs to be loaded by hand into the REPL: ```C-c C-k```
+Load the full file to REPL: ```C-c C-k```
   
-Put your cursor at the end of the new function and do:  ```C-x C-e```
+Execute command with cursor at the end of a bracket: ```C-c C-p``` or ```C-x C-e```
   
 Save the current buffer to its file (save-buffer): ```C-x C-s```
   
