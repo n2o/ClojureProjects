@@ -1,3 +1,3 @@
-# Introduction to blatt01
+# Introduction to four-clojure
 
 TODO: write [great documentation](http://jacobian.org/writing/great-documentation/what-to-write/)

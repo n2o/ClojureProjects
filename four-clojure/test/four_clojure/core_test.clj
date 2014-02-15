@@ -1,6 +1,6 @@
-(ns blatt03.core-test
+(ns four-clojure.core-test
   (:require [clojure.test :refer :all]
-            [blatt03.core :refer :all]))
+            [four-clojure.core :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
