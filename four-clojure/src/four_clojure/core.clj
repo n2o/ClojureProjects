@@ -1,4 +1,4 @@
-dd(ns four-clojure.core)
+(ns four-clojure.core)
 (use 'clojure.repl)
 
 ;;;; 4Clojure
