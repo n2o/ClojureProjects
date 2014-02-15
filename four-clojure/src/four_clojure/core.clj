@@ -1,4 +1,4 @@
-(ns four-clojure.core)
+dd(ns four-clojure.core)
 (use 'clojure.repl)
 
 ;;;; 4Clojure
@@ -73,8 +73,18 @@
        (apply str)
        (println)))
 
-(perfect-squares "15,16,25,36,37")
-(int (Math/sqrt 4))
-(doc interpose)
+;; To Tree, or not to Tree #95
+(defn is-tree? [tree]
+  (if (= (count tree) 3)
+    (let [[root left right] tree]
+      (if-not (or (= false left) (= false right))
+        (cond
+         (and (nil? left) (nil? right)) true
+         (nil?  left) (is-tree? right)
+         (nil? right) (is-tree? left)
+         :else (and (is-tree? left) (is-tree? right)))
+        false))
+    false))
+(is-tree? [1 [2 [3 [4 false nil] nil] nil] nil])
 
-(re-seq #"\d" "1,2,3,4,5")
+(source nth)
