@@ -87,4 +87,24 @@
     false))
 (is-tree? [1 [2 [3 [4 false nil] nil] nil] nil])
 
-(source nth)
+
+;; Analyze a Tic-Tac-Toe Board #73
+(def field [[:x :x :x]
+            [:x :e :e]
+            [:x :x :x]])
+
+(defn win [field]
+  (let [[[a b c]
+         [d e f]
+         [g h i]] field]
+    (cond
+     (and (= a b c) (not (= a :e))) a
+     (and (= d e f) (not (= d :e))) d
+     (and (= g h i) (not (= g :e))) g
+     (and (= a d g) (not (= a :e))) a
+     (and (= b e h) (not (= b :e))) b
+     (and (= c f i) (not (= c :e))) c
+     (and (= a e i) (not (= a :e))) a
+     (and (= c e g) (not (= c :e))) c)))
+(win field)
+
