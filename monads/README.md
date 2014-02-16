@@ -52,11 +52,12 @@ That's really easy and cool! Monads safe many lines of code, even in this small 
 The rules:
 
 Take a list of numbers.
-If the number mod 3 = 0 then print :fizz
-If the number mod 5 = 0 then print :buzz
+* If the number mod 3 = 0 then print :fizz
+* If the number mod 5 = 0 then print :buzz
 
 Now implement the variant of the game:
-If the number mod 15 = 0 then print either :fizz or :buzz
+* If the number mod 15 = 0 then print either :fizz or :buzz
+
 (original: print :fizzbuzz, but that case is not interesting
 
 Now we can take a sequence of numbers and return a new sequence with :fizz or :buzz replaced for a number.
