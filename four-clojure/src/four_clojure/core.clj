@@ -1,7 +1,7 @@
 (ns four-clojure.core)
 (use 'clojure.repl)
 
-;;;; 4Clojure
+;;;; 4Clojure Problems from https://www.4clojure.com/problem/
 
 ;; Flipping out #46 
 (defn flip [f]
@@ -108,3 +108,24 @@
      (and (= c e g) (not (= c :e))) c)))
 (win field)
 
+
+;; Perfect Numbers #80
+(defn perfect? [n]
+  (loop [sum 0
+         k 1]
+    (if (= sum n)
+      true
+      (if (< sum n)
+        (recur (+ sum k) (inc k))
+        false))))
+
+
+;; Set Intersection #81
+(defn set-intersection [set1 set2]
+  (for [u set1 v set2 :when (= u v)] u))
+(set-intersection #{1 2 3} #{1 4 5})
+
+
+;; Find the odd numbers #25
+(defn odds [coll]
+  (filter #(not (even? %)) coll))
