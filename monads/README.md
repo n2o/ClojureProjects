@@ -9,6 +9,7 @@ Here are two short examples:
 
 1. Make the Addition of 3 numbers nil-safe
 2. Get all solutions for a modified Fizzbuzz-Game automatically packed into a list
+3. What about lifting?
 
 ### Preparation
 
@@ -93,3 +94,32 @@ So we have a choicepoint with the two 15s. They can be either :fizz or :buzz. Th
 ```
 
 That's it! The whole code can be found as usual under [src/monads/core.clj](src/monads/core.clj).
+
+
+# What about Lifting?
+There is a way to lift a normal function to work with a monad. This process is called *lift*. It takes a normal function, which would take a number of values and returns a value and converts it to a function, which takes a fixed number of monadic values and returns a monadic value. 
+
+It is easier than it sounds. Let's take the example from above and lift the normal addition. Therefore we need to fix the number of arguments which our new function needs. 
+So let's say we want to get a nil-safe addition of 3 numbers by using the maybe-monad and the function `m-lift`, we just need to write:
+
+```clojure
+(def nil-safe-add 
+  (with-monad maybe-m (m-lift 3 +)))
+```
+
+where `3` is the number of arguments the nil-safe-add will take and the function `+` which needs to be lifted.
+
+This is short hand for `maybe-add-three` defined above. The new function `nil-safe-add` does exactly the same calculation.
+
+It now can be used as known:
+
+```clojure
+(nil-safe-add 1 2 3)
+;; => 6
+
+(nil-safe-add 1 2 nil)
+;; => nil
+
+(+ 1 2 nil)
+;; => error
+```
